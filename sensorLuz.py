@@ -38,9 +38,15 @@ client.subscribe(topic)
 # Mantener la conexión activa
 client.loop_start()
 
-# Simular un sensor de temperatura que envía datos al broker
+# Simular un sensor de luz que envía datos al broker
 while True:
-        temperature = round(random.uniform(15, 35), 2)  # Temperatura aleatoria entre 15°C y 35°C
-        client.publish("sensor/temperatura", f"{temperature} °C")
-        print(f"Temperatura enviada: {temperature} °C")
-        time.sleep(5)  # Esperar 5 segundos antes de enviar la próxima actualización
+    # Simula el estado de la luz (encendida/apagada) de manera aleatoria
+    is_light_on = random.choice([True, False])
+
+    if is_light_on:
+        client.publish("sensor/luz", "Encendido")
+    else:
+        client.publish("sensor/luz", "Apagado")
+
+    print("Encendido" if is_light_on else "Apagado")
+    time.sleep(5)  # Esperar 5 segundos antes de enviar la próxima actualización

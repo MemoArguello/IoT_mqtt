@@ -38,9 +38,9 @@ client.subscribe(topic)
 # Mantener la conexión activa
 client.loop_start()
 
-# Simular un sensor de temperatura que envía datos al broker
+# Simular un sensor de humedad que envía datos al broker
 while True:
-        temperature = round(random.uniform(15, 35), 2)  # Temperatura aleatoria entre 15°C y 35°C
-        client.publish("sensor/temperatura", f"{temperature} °C")
-        print(f"Temperatura enviada: {temperature} °C")
-        time.sleep(5)  # Esperar 5 segundos antes de enviar la próxima actualización
+    humidity = round(random.uniform(30, 70), 2)  # Humedad aleatoria entre 30% y 70%
+    client.publish("sensor/humedad", f"{humidity} %")
+    print(f"Humedad enviada: {humidity} %")
+    time.sleep(5)  # Esperar 5 segundos antes de enviar la próxima actualización

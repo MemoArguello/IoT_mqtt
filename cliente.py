@@ -5,6 +5,7 @@ broker_address = "ffab79b43fa54fe9bfbba352bebdd51b.s1.eu.hivemq.cloud"
 port = 8883  # Puerto seguro MQTT estándar
 username = "MemoArguello"  # Reemplaza con tu nombre de usuario
 password = "Hamburguesa98"  # Reemplaza con tu contraseña
+topic = "sensor/temperatura"
 
 # Callback cuando se recibe un mensaje en el tema suscrito
 def on_message(client, userdata, message):
